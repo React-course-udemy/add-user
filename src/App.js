@@ -1,11 +1,12 @@
 
 import './App.css';
-import Button from './components/Button';
+import AddUser from './components/AddUser';
+
 
 function App() {
   return (
     <div className="App">
-      <Button/>
+      <AddUser/>
     </div>
   );
 }

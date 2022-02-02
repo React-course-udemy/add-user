@@ -1,11 +1,17 @@
 import React from 'react';
+import Button from './Button';
 
-const AddUser = () => {
+import Classes from "../Css/AddUser.module.css"
+const UserForm = () => {
     return (
-        <div>
-            <input />
-        </div>
+        <form className={Classes.input}>
+            <label>Username</label>
+            <input  type="text" />
+            <label>Age (Years)</label>
+            <input type="number" />
+            <Button/>
+        </form>
     );
 };
 
-export default AddUser;
+export default UserForm;
