@@ -8,11 +8,14 @@ import UserList from './components/UserList/UserList';
 function App() {
   const[users , setUsers]=useState([{name: "Bassant", age:18}]);
   const addUserHandler =(userData)=>{
+    setUsers((prevUserData) => {
+      return [...prevUserData, userData];
+    });
   }
   return (
     <div className="App">
       <AddUser addUserHandler={addUserHandler}/>
-      <UserList list={users}/>
+      <UserList users={users}/>
     </div>
   );
 }

@@ -1,16 +1,18 @@
-import React from 'react';
-
-const UserList = ({list}) => {
-    return (
-        <div>{
-            list.map((el, i)=>(
-                
-                <p key= {i} style={{backgroundColor:"white"}}>{el.name} {el.age}</p>
-            )
-                
-            )}
-        </div>
-    );
+import React from "react";
+import Card from "../UI/Card";
+import classes from "../../Css/UserList.module.css"
+const UserList = ({ users }) => {
+  return (
+    <Card className= {classes.users}>
+      <ul>
+        {users.map((el, i) => (
+          <li key={i}>
+            {el.name} ({el.age} years old)
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
 };
 
 export default UserList;
