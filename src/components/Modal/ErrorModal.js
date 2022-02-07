@@ -1,13 +1,14 @@
 import React from "react";
+import reactDom from "react-dom";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 
 import classes from "../../Css/ErrorModal.module.css";
 
-const ErrorModal = ({ title, message ,errorHandler}) => {
+const ModalOverlay = ({ title, message, errorHandler }) => {
   return (
     <div>
-        <div className={classes.backdrop} onClick={errorHandler}></div>
+      <div className={classes.backdrop} onClick={errorHandler}></div>
       <Card className={classes.modal}>
         <header className={classes.header}>
           <h2>{title}</h2>
@@ -20,6 +21,17 @@ const ErrorModal = ({ title, message ,errorHandler}) => {
         </footer>
       </Card>
     </div>
+  );
+};
+
+const ErrorModal = ({ errorHandler }) => {
+  return (
+    <React.Fragment>
+      {reactDom.createPortal(
+        <ModalOverlay onClick={errorHandler} />,
+        document.getElementById("modalOverlay_root")
+      )}
+    </React.Fragment>
   );
 };
 
