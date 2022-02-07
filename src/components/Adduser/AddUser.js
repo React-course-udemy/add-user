@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../Modal/ErrorModal";
+import Wrapper from "../Helpers/Wrapper";
 
 import Classes from "../../Css/AddUser.module.css";
+
 
 const UserForm = ({ addUserHandler }) => {
   const [name, setName] = useState(""),
@@ -40,7 +42,7 @@ const UserForm = ({ addUserHandler }) => {
       setError(null);
   }
   return (
-    <div>
+    <Wrapper>
       {error && <ErrorModal title={error.title} message={error.message} errorHandler={errorHandler} />}
 
       <Card className={Classes.input}>
@@ -57,7 +59,7 @@ const UserForm = ({ addUserHandler }) => {
           <Button />
         </form>
       </Card>
-    </div>
+    </Wrapper>
   );
 };
 
